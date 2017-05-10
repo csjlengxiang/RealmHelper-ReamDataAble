@@ -1,0 +1,20 @@
+PODS:
+  - HandyJSON (1.7.1)
+  - Realm (2.6.2):
+    - Realm/Headers (= 2.6.2)
+  - Realm/Headers (2.6.2)
+  - RealmSwift (2.6.2):
+    - Realm (= 2.6.2)
+
+DEPENDENCIES:
+  - HandyJSON
+  - RealmSwift
+
+SPEC CHECKSUMS:
+  HandyJSON: 54b6ce942795f7b2e61b82fe73cf25d9f139d125
+  Realm: 29222766425b9f831228f81b63f0e38a97a4d700
+  RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
+
+PODFILE CHECKSUM: b8a5abdae689cd43c4225da6cdc4f8cbbabab879
+
+COCOAPODS: 1.2.0
