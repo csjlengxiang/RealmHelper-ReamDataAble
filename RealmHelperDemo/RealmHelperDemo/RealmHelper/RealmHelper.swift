@@ -55,7 +55,7 @@ extension RealmDataAble where Self.realmDataType: BasicDataAble, Self.realmDataT
     }
 }
 
-extension BasicDataAble where Self: Object, Self.basicDataType: HandyJSON {
+extension BasicDataAble where Self: Object, Self.basicDataType: RealmDataAble {
     var basicData: basicDataType? {
         return basicDataType.deserialize(from: self.toJSONString())
     }
