@@ -65,6 +65,7 @@
 		387F84691EC1B69D00C40595 /* RealmHelperDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3867616A1EC2CC12001DFF53 /* Person.swift */,
 				3867616E1EC2E346001DFF53 /* RealmHelper.swift */,
 				387F846A1EC1B69D00C40595 /* AppDelegate.swift */,
 				387F846C1EC1B69D00C40595 /* ViewController.swift */,
@@ -72,7 +73,6 @@
 				387F84711EC1B69D00C40595 /* Assets.xcassets */,
 				387F84731EC1B69D00C40595 /* LaunchScreen.storyboard */,
 				387F84761EC1B69D00C40595 /* Info.plist */,
-				3867616A1EC2CC12001DFF53 /* Person.swift */,
 			);
 			path = RealmHelperDemo;
 			sourceTree = "<group>";

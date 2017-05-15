@@ -60,6 +60,10 @@ class ViewController: UIViewController {
                 print (personModels.first?.toJSONString()) // handyjson gg
                 print (personModels.first?.toDictionary()) // so use extension
             })
+            
+            let p = Person.object(byKey: "my key")
+            print (p)
+            
         }
     }
 

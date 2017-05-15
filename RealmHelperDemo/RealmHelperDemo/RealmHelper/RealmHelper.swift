@@ -35,6 +35,10 @@ extension RealmDataAble where Self.realmDataType: BasicDataAble, Self.realmDataT
         RealmHelper.addOrUpdate(object: realmData)
     }
     
+    static func object(byKey: String) -> Self? {
+        return RealmHelper.object(type: Self.realmDataType.self, key: byKey)?.basicData as? Self
+    }
+    
     // 普通数据获取
     static func select(predicate: NSPredicate) -> Observable<[Self]> {
         let o: Observable<Results<Self.realmDataType>> = RealmHelper.select(type: Self.realmDataType.self, predicate: predicate)
@@ -107,6 +111,11 @@ public struct RealmHelper {
         }
     }
     
+    public static func object<T: Object>(type: T.Type, key: String) -> T? {
+        let realm = try! Realm()
+        return realm.object(ofType: type, forPrimaryKey: key)
+    }
+    
     public static func select<T: Object>(type: T.Type, predicate: NSPredicate) -> Observable<Results<T>> {
         return Observable.create({ (observer) -> Disposable in
             let realm = try! Realm()
@@ -116,7 +125,6 @@ public struct RealmHelper {
             return Disposables.create()
         })
     }
-    
 }
 
 
