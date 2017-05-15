@@ -46,13 +46,19 @@ class ViewController: UIViewController {
         
         person.addOrUpdate()
         
-        person = Person(key: "my key1", name: "csj", age: 18)
+        person = Person(key: "my key1", name: "csj", age: 16)
         
         person.addOrUpdate()
         
         DispatchQueue.global().async {
-            Person.select(predicate: NSPredicate(format: "name == %@", "csj")).subscribe(onNext: { (persons) in
+            let _ = Person.select(predicate: NSPredicate(format: "name == %@", "csj")).subscribe(onNext: { (persons: [Person]) in
                 print (persons)
+            })
+            
+            let _ = Person.select(predicate: NSPredicate(format: "name == %@", "csj")).subscribe(onNext: { (personModels: Results<PersonModel>) in
+                
+                print (personModels.first?.toJSONString()) // handyjson gg
+                print (personModels.first?.toDictionary()) // so use extension
             })
         }
     }

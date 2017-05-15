@@ -37,16 +37,19 @@ extension RealmDataAble where Self.realmDataType: BasicDataAble, Self.realmDataT
     
     // 普通数据获取
     static func select(predicate: NSPredicate) -> Observable<[Self]> {
-        let o: Observable<Results<Self.realmDataType>>  = RealmHelper.select(type: Self.realmDataType.self, predicate: predicate)
+        let o: Observable<Results<Self.realmDataType>> = RealmHelper.select(type: Self.realmDataType.self, predicate: predicate)
         
         return o.map({ (results) -> [Self] in
-            
             var ret: [Self] = []
             for result in results {
                 ret.append(result.basicData as! Self)
             }
             return ret
         })
+    }
+    
+    static func select(predicate: NSPredicate) -> Observable<Results<Self.realmDataType>> {
+        return RealmHelper.select(type: Self.realmDataType.self, predicate: predicate)
     }
 }
 
