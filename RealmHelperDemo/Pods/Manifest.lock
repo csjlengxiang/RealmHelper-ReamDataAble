@@ -5,16 +5,19 @@ PODS:
   - Realm/Headers (2.6.2)
   - RealmSwift (2.6.2):
     - Realm (= 2.6.2)
+  - RxSwift (3.4.0)
 
 DEPENDENCIES:
   - HandyJSON
   - RealmSwift
+  - RxSwift
 
 SPEC CHECKSUMS:
   HandyJSON: 54b6ce942795f7b2e61b82fe73cf25d9f139d125
   Realm: 29222766425b9f831228f81b63f0e38a97a4d700
   RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
+  RxSwift: 3789a1af753002a14edecdb698a2424624296a9c
 
-PODFILE CHECKSUM: b8a5abdae689cd43c4225da6cdc4f8cbbabab879
+PODFILE CHECKSUM: 544961f52385c4565544e64a339698433d8810f4
 
 COCOAPODS: 1.2.0

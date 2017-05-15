@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
 
@@ -21,6 +22,26 @@ class ViewController: UIViewController {
         
         RealmHelper.initRealm()
         
+        let personModel = PersonModel()
+        
+        
+        personModel.key = "my key2"
+        personModel.name = "lx"
+        personModel.age = 16
+
+        let realm = try! Realm()
+        
+        try! realm.write {
+            realm.add(personModel, update: true)
+        }
+        
+        
+        print (personModel.toJSONString())
+//
+//        let p2 = PersonModel.deserialize(from: personModel.toJSONString())
+//        
+//        print (p2?.toJSONString())
+
         var person = Person(key: "my key", name: "csj", age: 18)
         
         person.addOrUpdate()
@@ -29,14 +50,26 @@ class ViewController: UIViewController {
         
         person.addOrUpdate()
         
-        
-        Person.select(predicate: NSPredicate(format: "name == %@", "csj")) { (result) in
-            print (result)
+        DispatchQueue.global().async {
+            Person.select(predicate: NSPredicate(format: "name == %@", "csj")).subscribe(onNext: { (persons) in
+                print (persons)
+            })
         }
-        
-        
-        
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

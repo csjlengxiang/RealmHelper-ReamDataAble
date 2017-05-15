@@ -5,5 +5,5 @@ target 'RealmHelperDemo' do
 
     pod 'RealmSwift'
     pod 'HandyJSON'
-	
+    pod 'RxSwift'
 end
